@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* ヘッダー */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+/* ハンバーガー */
+.menu-toggle {
+  border: none;
+  background: none;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  margin: 5px 0;
+}
+
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  background: #fff;
+}
+
+.mobile-nav.active {
+  display: flex;
+}
+
+.mobile-nav a {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 商品一覧（2列固定） */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.item-card h3 {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* スライダー */
+.square-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 16px;
+}
+
+.square-card {
+  min-width: 120px;
+}
+
+.square-card img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* 商品ページ */
+.detail-page {
+  padding: 16px;
+}
+
+.detail-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.vertical-gallery img {
+  margin-bottom: 10px;
+}
