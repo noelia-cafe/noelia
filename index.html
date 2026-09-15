@@ -119,9 +119,33 @@
     }
 
     @media (max-width: 440px) {
-      .nav a:not(:last-child) { display: none; }
-      .product-grid { grid-template-columns: 1fr; gap: 36px; }
-    }
+  .page-header {
+    padding: 16px 18px;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .nav {
+    gap: 8px;
+    flex-shrink: 0;
+    font-size: 9px;
+    letter-spacing: 0.05em;
+  }
+
+  .nav a {
+    display: block;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
   </style>
 </head>
 <body>
