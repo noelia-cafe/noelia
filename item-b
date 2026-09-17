@@ -171,9 +171,9 @@
   </header>
 
   <main class="product-page">
-    <!-- 正方形の商品画像：images/item-b-main.jpg を差し替えてください -->
+    <!-- 正方形の商品画像：images/item-b-main.png を差し替えてください -->
     <div class="main-image">
-      <img src="images/item-b-main.jpg" alt=" Desigual ワンピース">
+      <img src="images/item-b-main.png" alt=" Desigual ワンピース">
     </div>
 
     <p class="product-price">¥1,000（税込）</p>
