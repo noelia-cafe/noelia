@@ -107,36 +107,6 @@
     .product-card__name { margin: 0 0 7px; font-size: 14px; font-weight: 500; }
     .product-card__price { margin: 0; color: var(--muted); font-size: 13px; }
 
-    .product-card[hidden] { display: none; }
-
-    .category__actions {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 32px;
-    }
-
-    .more-button {
-      min-width: 118px;
-      padding: 11px 22px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      color: var(--ink);
-      background: #fff;
-      font: inherit;
-      font-size: 12px;
-      letter-spacing: .12em;
-      cursor: pointer;
-      transition: color .2s ease, background-color .2s ease;
-    }
-
-    .more-button:hover,
-    .more-button:focus-visible {
-      color: #fff;
-      background: var(--ink);
-    }
-
-    .more-button[hidden] { display: none; }
-
     .page-footer { padding: 42px 20px; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: 11px; letter-spacing: .12em; }
 
     @media (max-width: 720px) {
@@ -152,7 +122,6 @@
       .page-title { padding: 52px 0 34px; }
       .category { padding-bottom: 66px; }
       .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
-      .category__actions { margin-top: 26px; }
     }
 
     @media (max-width: 440px) {
@@ -203,20 +172,17 @@
       <h2 class="category__title">WOMAN</h2>
       <div class="product-grid">
         <a class="product-card" href="item-a.html">
-          <div class="product-card__image"><img src="images/item-a-main.jpg" alt="ウーマン商品1" loading="lazy"></div>
+          <div class="product-card__image"><img src="images/item-amain.jpg" alt="ウーマン商品1" loading="lazy"></div>
           <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
         </a>
         <a class="product-card" href="item-b.html">
-          <div class="product-card__image"><img src="images/item-b-main.jpg" alt="ウーマン商品2" loading="lazy"></div>
+          <div class="product-card__image"><img src="images/item-bmain.jpg" alt="ウーマン商品2" loading="lazy"></div>
           <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
         </a>
         <a class="product-card" href="item-c.html">
-          <div class="product-card__image"><img src="images/item-c-main.jpg" alt="ウーマン商品3" loading="lazy"></div>
+          <div class="product-card__image"><img src="images/item-cmain.jpg" alt="ウーマン商品3" loading="lazy"></div>
           <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
         </a>
-      </div>
-      <div class="category__actions">
-        <button class="more-button" type="button" aria-expanded="false">もっとみる</button>
       </div>
     </section>
 
@@ -236,9 +202,6 @@
           <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
         </a>
       </div>
-      <div class="category__actions">
-        <button class="more-button" type="button" aria-expanded="false">もっとみる</button>
-      </div>
     </section>
 
     <section class="category" id="men">
@@ -257,58 +220,9 @@
           <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
         </a>
       </div>
-      <div class="category__actions">
-        <button class="more-button" type="button" aria-expanded="false">もっとみる</button>
-      </div>
     </section>
   </main>
 
   <footer class="page-footer">© 2026 YOUR BRAND</footer>
-
-  <script>
-    (() => {
-      const mobileQuery = window.matchMedia('(max-width: 720px)');
-      const categories = document.querySelectorAll('.category');
-
-      const getInitialLimit = () => mobileQuery.matches ? 6 : 9;
-
-      const updateCategory = (category) => {
-        const cards = [...category.querySelectorAll('.product-card')];
-        const button = category.querySelector('.more-button');
-        const expanded = button.getAttribute('aria-expanded') === 'true';
-        const limit = getInitialLimit();
-
-        cards.forEach((card, index) => {
-          card.hidden = !expanded && index >= limit;
-        });
-
-        button.hidden = cards.length <= limit;
-        button.textContent = expanded ? '閉じる' : 'もっとみる';
-      };
-
-      categories.forEach((category) => {
-        const button = category.querySelector('.more-button');
-
-        button.addEventListener('click', () => {
-          const expanded = button.getAttribute('aria-expanded') === 'true';
-          button.setAttribute('aria-expanded', String(!expanded));
-          updateCategory(category);
-
-          if (expanded) {
-            category.querySelector('.category__title').scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-
-        updateCategory(category);
-      });
-
-      mobileQuery.addEventListener('change', () => {
-        categories.forEach(updateCategory);
-      });
-    })();
-  </script>
 </body>
 </html>
