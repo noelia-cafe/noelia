@@ -85,15 +85,15 @@
     .banner-card { display: block; }
     .banner-card__image {
       overflow: hidden;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1938 / 812;
       background: var(--paper);
     }
     .banner-card__image img {
       height: 100%;
-      object-fit: cover;
-      transition: transform .45s ease;
+      object-fit: contain;
+      transition: opacity .25s ease;
     }
-    .banner-card:hover .banner-card__image img { transform: scale(1.035); }
+    .banner-card:hover .banner-card__image img { opacity: .92; }
     .category { padding: 38px 0 92px; }
     .category__intro { margin: 0 auto 38px; text-align: center; }
     .category__title {
@@ -193,7 +193,7 @@
         <div class="banner-card__image"><img src="images/bnr-3.png" alt="おもちゃ商品ページ" loading="lazy"></div>
       </a>
       <a class="banner-card" href="500.html">
-        <div class="banner-card__image"><img src="images/bnr-4.png" alt="500円以上" loading="lazy"></div>
+        <div class="banner-card__image"><img src="images/bnr-4.png" alt="500円以上の商品ページ" loading="lazy"></div>
       </a>
     </section>
 
@@ -215,11 +215,8 @@
         <a class="product-card" href="item-e.html"><div class="product-card__image"><img src="images/item-e-main.png" alt="ウーマン商品5" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">LANVIN ワンピース</h3><p class="product-card__price">¥3,000（税込）</p></div></a>
         <a class="product-card" href="item-f.html"><div class="product-card__image"><img src="images/item-f-main.png" alt="ウーマン商品6" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">theory コート</h3><p class="product-card__price">¥2,000（税込）</p></div></a>
         <a class="product-card" href="item-g.html"><div class="product-card__image"><img src="images/item-g-main.png" alt="ウーマン商品7" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">nano universe レザースカート</h3><p class="product-card__price">¥1,000（税込）</p></div></a>
-<a class="product-card" href="item-g.html"><div class="product-card__image"><img src="images/item-h-main.png" alt="ウーマン商品8" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">ユニクロ タートルネックセーター</h3><p class="product-card__price">¥300（税込）</p></div></a>
-<a class="product-card" href="item-g.html"><div class="product-card__image"><img src="images/item-i-main.png" alt="ウーマン商品9" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">Ungrid シャツ</h3><p class="product-card__price">¥500（税込）</p></div></a>
-      </div>
-
-
+        <a class="product-card" href="item-h.html"><div class="product-card__image"><img src="images/item-h-main.png" alt="ウーマン商品8" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">ユニクロ タートルネックセーター</h3><p class="product-card__price">¥300（税込）</p></div></a>
+        <a class="product-card" href="item-i.html"><div class="product-card__image"><img src="images/item-i-main.png" alt="ウーマン商品9" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">Ungrid シャツ</h3><p class="product-card__price">¥500（税込）</p></div></a>
       </div>
       <div class="category__actions"><button class="more-button" type="button" aria-expanded="false">もっとみる</button></div>
     </section>
@@ -227,10 +224,10 @@
     <section class="category" id="kids">
       <div class="category__intro">
         <h2 class="category__title"><a href="kids.html" aria-label="KIDSの商品一覧を見る">KIDS</a></h2>
-       <!-- <p class="category__description">毎日の装いを楽しくする、キッズアイテムを集めました。</p>-->
+        <!--<p class="category__description">毎日の装いを楽しくする、キッズアイテムを集めました。</p>-->
       </div>
       <div class="product-grid">
-        <a class="product-card" href="item-ka.html"><div class="product-card__image"><img src="images/item-ka-main.png" alt="キッズ商品1" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">H&M ワンピース</h3><p class="product-card__price">¥300（税込）</p></div></a>
+        <a class="product-card" href="item-ka.html"><div class="product-card__image"><img src="images/item-ka-main.png" alt="キッズ商品1" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">H&amp;M ワンピース</h3><p class="product-card__price">¥300（税込）</p></div></a>
         <a class="product-card" href="item-kb.html"><div class="product-card__image"><img src="images/item-kb-main.png" alt="キッズ商品2" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">familiar ワンピース</h3><p class="product-card__price">¥500（税込）</p></div></a>
         <a class="product-card" href="item-kc.html"><div class="product-card__image"><img src="images/item-kc-main.png" alt="キッズ商品3" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">petit main コート</h3><p class="product-card__price">¥500（税込）</p></div></a>
         <a class="product-card" href="item-kd.html"><div class="product-card__image"><img src="images/item-kd-main.png" alt="キッズ商品4" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">mikihouse ジャンバースカート</h3><p class="product-card__price">¥500（税込）</p></div></a>
@@ -244,7 +241,7 @@
     <section class="category" id="men">
       <div class="category__intro">
         <h2 class="category__title"><a href="men.html" aria-label="MENの商品一覧を見る">MEN</a></h2>
-      <!--  <p class="category__description">幅広いシーンで使いやすい、男性向けのアイテムを集めました。</p>-->
+        <!--<p class="category__description">幅広いシーンで使いやすい、男性向けのアイテムを集めました。</p>-->
       </div>
       <div class="product-grid">
         <a class="product-card" href="item-ma.html"><div class="product-card__image"><img src="images/item-ma-main.png" alt="メンズ商品1" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">Colombia ワークパンツ</h3><p class="product-card__price">¥500（税込）</p></div></a>
