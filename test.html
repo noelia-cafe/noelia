@@ -67,6 +67,15 @@
 
     main { width: min(var(--content-width), calc(100% - 40px)); margin: 0 auto; }
 
+    .site-notice {
+      margin: 28px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.85;
+      text-align: center;
+    }
+    .site-notice span { display: block; }
+
     .page-title { padding: 64px 0 38px; text-align: center; }
     .page-title h1 { margin: 0 0 12px; font-size: clamp(26px, 4vw, 38px); font-weight: 500; letter-spacing: .16em; }
     .page-title p { margin: 0; color: var(--muted); font-size: 12px; letter-spacing: .22em; }
@@ -137,6 +146,7 @@
         background-size: cover;
       }
       .page-title { padding: 52px 0 34px; }
+      .site-notice { margin-top: 22px; font-size: 12px; text-align: left; }
       .banner-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 14px; padding-top: 42px; padding-bottom: 64px; }
       .category { padding-bottom: 66px; }
       .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
@@ -182,6 +192,12 @@
   </section>
 
   <main>
+    <p class="site-notice" role="note">
+      <span>掲載商品はバザー会場での販売予定商品です。</span>
+      <span>当サイトからのご購入・お取り置きはできません。</span>
+      <span>USED商品のため、状態は商品ごとに異なります。会場にて実物をご確認ください。</span>
+    </p>
+
     <section class="banner-menu" aria-label="商品カテゴリー">
       <a class="banner-card" href="100yen.html">
         <div class="banner-card__image"><img src="images/bnr-1.png" alt="100円商品ページ" loading="lazy"></div>
