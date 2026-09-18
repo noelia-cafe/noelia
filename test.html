@@ -85,7 +85,7 @@
     .banner-card { display: block; }
     .banner-card__image {
       overflow: hidden;
-      aspect-ratio: 8 / 3;
+      aspect-ratio: 16 / 9;
       background: var(--paper);
     }
     .banner-card__image img {
@@ -94,14 +94,6 @@
       transition: transform .45s ease;
     }
     .banner-card:hover .banner-card__image img { transform: scale(1.035); }
-    .banner-card__title {
-      margin: 16px 0 0;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.6;
-      letter-spacing: .06em;
-    }
-
     .category { padding: 38px 0 92px; }
     .category__intro { margin: 0 auto 38px; text-align: center; }
     .category__title {
@@ -168,7 +160,6 @@
         letter-spacing: .02em;
       }
       .nav a { display: block; }
-      .banner-card__title { margin-top: 11px; font-size: 14px; }
       .category__title { min-width: 240px; font-size: 20px; }
     }
   </style>
@@ -194,19 +185,15 @@
     <section class="banner-menu" aria-label="商品カテゴリー">
       <a class="banner-card" href="300yen.html">
         <div class="banner-card__image"><img src="images/bnr-1.png" alt="300円商品ページ" loading="lazy"></div>
-        <h2 class="banner-card__title">300円の商品</h2>
       </a>
       <a class="banner-card" href="500yen.html">
         <div class="banner-card__image"><img src="images/bnr-2.png" alt="500円商品ページ" loading="lazy"></div>
-        <h2 class="banner-card__title">500円の商品</h2>
       </a>
       <a class="banner-card" href="toys.html">
         <div class="banner-card__image"><img src="images/bnr-3.png" alt="おもちゃ商品ページ" loading="lazy"></div>
-        <h2 class="banner-card__title">おもちゃ</h2>
       </a>
       <a class="banner-card" href="tableware.html">
         <div class="banner-card__image"><img src="images/bnr-4.png" alt="食器商品ページ" loading="lazy"></div>
-        <h2 class="banner-card__title">食器</h2>
       </a>
     </section>
 
