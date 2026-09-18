@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WOMAN・KIDS・MENの商品一覧ページ">
-  <title>商品一覧</title>
+  <meta name="description" content="noelia-cafeの商品カテゴリーページ">
+  <title>noelia-cafe</title>
   <style>
     :root {
       --ink: #181818;
@@ -67,74 +67,69 @@
 
     main { width: min(var(--content-width), calc(100% - 40px)); margin: 0 auto; }
 
-    .page-title { padding: 72px 0 44px; text-align: center; }
+    .page-title { padding: 64px 0 38px; text-align: center; }
     .page-title h1 { margin: 0 0 12px; font-size: clamp(26px, 4vw, 38px); font-weight: 500; letter-spacing: .16em; }
     .page-title p { margin: 0; color: var(--muted); font-size: 12px; letter-spacing: .22em; }
 
-    .category { padding: 22px 0 92px; }
-    .category__title {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin: 0 0 30px;
-      font: 400 19px/1 Georgia, serif;
-      letter-spacing: .24em;
+    .banner-menu {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(24px, 3vw, 40px) clamp(18px, 2.5vw, 30px);
+      padding-top: 64px;
+      padding-bottom: 88px;
+      background: #fbf4e7;
+      box-shadow: 0 0 0 100vmax #fbf4e7;
+      clip-path: inset(0 -100vmax);
     }
 
-    .category__title::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    .banner-card { display: block; }
+    .banner-card__image {
+      overflow: hidden;
+      aspect-ratio: 8 / 3;
+      background: var(--paper);
+    }
+    .banner-card__image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+    .banner-card:hover .banner-card__image img { transform: scale(1.035); }
+    .banner-card__title {
+      margin: 16px 0 0;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.6;
+      letter-spacing: .06em;
+    }
 
+    .category { padding: 38px 0 92px; }
+    .category__intro { margin: 0 auto 38px; text-align: center; }
+    .category__title {
+      display: inline-block;
+      min-width: 280px;
+      margin: 0;
+      padding: 13px 28px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font: 400 22px/1.2 Georgia, serif;
+      letter-spacing: .24em;
+    }
+    .category__title a:hover { color: var(--accent); }
+    .category__description { margin: 22px 0 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
     .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 3vw, 38px); }
-
     .product-card { display: block; }
     .product-card__image { position: relative; overflow: hidden; aspect-ratio: 1 / 1; background: var(--paper); }
     .product-card__image img { height: 100%; object-fit: contain; transition: transform .5s ease; }
     .product-card:hover .product-card__image img { transform: scale(1.035); }
-    .product-card__image::after {
-      content: "VIEW ITEM";
-      position: absolute;
-      inset: auto 14px 14px auto;
-      padding: 8px 11px;
-      background: rgba(255,255,255,.9);
-      font-size: 10px;
-      letter-spacing: .14em;
-      opacity: 0;
-      transform: translateY(5px);
-      transition: .25s ease;
-    }
+    .product-card__image::after { content: "VIEW ITEM"; position: absolute; inset: auto 14px 14px auto; padding: 8px 11px; background: rgba(255,255,255,.9); font-size: 10px; letter-spacing: .14em; opacity: 0; transform: translateY(5px); transition: .25s ease; }
     .product-card:hover .product-card__image::after { opacity: 1; transform: none; }
-
     .product-card__body { padding: 15px 2px 0; }
     .product-card__name { margin: 0 0 7px; font-size: 14px; font-weight: 500; }
     .product-card__price { margin: 0; color: var(--muted); font-size: 13px; }
-
     .product-card[hidden] { display: none; }
-
-    .category__actions {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 32px;
-    }
-
-    .more-button {
-      min-width: 118px;
-      padding: 11px 22px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      color: var(--ink);
-      background: #fff;
-      font: inherit;
-      font-size: 12px;
-      letter-spacing: .12em;
-      cursor: pointer;
-      transition: color .2s ease, background-color .2s ease;
-    }
-
-    .more-button:hover,
-    .more-button:focus-visible {
-      color: #fff;
-      background: var(--ink);
-    }
-
+    .category__actions { display: flex; justify-content: flex-end; margin-top: 32px; }
+    .more-button { min-width: 118px; padding: 11px 22px; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink); background: #fff; font: inherit; font-size: 12px; letter-spacing: .12em; cursor: pointer; transition: color .2s ease, background-color .2s ease; }
+    .more-button:hover, .more-button:focus-visible { color: #fff; background: var(--ink); }
     .more-button[hidden] { display: none; }
 
     .page-footer { padding: 42px 20px; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: 11px; letter-spacing: .12em; }
@@ -150,6 +145,7 @@
         background-size: cover;
       }
       .page-title { padding: 52px 0 34px; }
+      .banner-menu { grid-template-columns: 1fr; gap: 34px; padding-top: 42px; padding-bottom: 64px; }
       .category { padding-bottom: 66px; }
       .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
       .category__actions { margin-top: 26px; }
@@ -166,13 +162,14 @@
         white-space: nowrap;
       }
       .nav {
-        gap: 8px;
+        gap: 7px;
         flex-shrink: 0;
-        font-size: 9px;
-        letter-spacing: .05em;
+        font-size: 8px;
+        letter-spacing: .02em;
       }
       .nav a { display: block; }
-      .product-grid { grid-template-columns: 1fr; gap: 36px; }
+      .banner-card__title { margin-top: 11px; font-size: 14px; }
+      .category__title { min-width: 240px; font-size: 20px; }
     }
   </style>
 </head>
@@ -180,9 +177,9 @@
   <header class="page-header">
     <a class="logo" href="index.html" aria-label="トップページ">noelia-cafe</a>
     <nav class="nav" aria-label="カテゴリーナビゲーション">
-      <a href="#woman">WOMAN</a>
-      <a href="#kids">KIDS</a>
-      <a href="#men">MEN</a>
+      <a href="woman.html">WOMAN</a>
+      <a href="kids.html">KIDS</a>
+      <a href="men.html">MEN</a>
     </nav>
   </header>
 
@@ -194,91 +191,79 @@
   </section>
 
   <main>
+    <section class="banner-menu" aria-label="商品カテゴリー">
+      <a class="banner-card" href="300yen.html">
+        <div class="banner-card__image"><img src="images/bnr-1.png" alt="300円商品ページ" loading="lazy"></div>
+        <h2 class="banner-card__title">300円の商品</h2>
+      </a>
+      <a class="banner-card" href="500yen.html">
+        <div class="banner-card__image"><img src="images/bnr-2.png" alt="500円商品ページ" loading="lazy"></div>
+        <h2 class="banner-card__title">500円の商品</h2>
+      </a>
+      <a class="banner-card" href="toys.html">
+        <div class="banner-card__image"><img src="images/bnr-3.png" alt="おもちゃ商品ページ" loading="lazy"></div>
+        <h2 class="banner-card__title">おもちゃ</h2>
+      </a>
+      <a class="banner-card" href="tableware.html">
+        <div class="banner-card__image"><img src="images/bnr-4.png" alt="食器商品ページ" loading="lazy"></div>
+        <h2 class="banner-card__title">食器</h2>
+      </a>
+    </section>
+
     <header class="page-title">
       <h1>商品一覧</h1>
       <p>PRODUCTS</p>
     </header>
 
     <section class="category" id="woman">
-      <h2 class="category__title">WOMAN</h2>
+      <div class="category__intro">
+        <h2 class="category__title"><a href="woman.html" aria-label="WOMANの商品一覧を見る">WOMAN</a></h2>
+        <p class="category__description">毎日に取り入れやすい、女性向けのアイテムを集めました。</p>
+      </div>
       <div class="product-grid">
-        <a class="product-card" href="item-a.html">
-          <div class="product-card__image"><img src="images/item-a-main.jpg" alt="ウーマン商品1" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">earのショルダーバッグ</h3><p class="product-card__price">¥800（税込）</p></div>
-        </a>
-        <a class="product-card" href="item-b.html">
-          <div class="product-card__image"><img src="images/item-b-main.png" alt="ウーマン商品2" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">Desigual ワンピース</h3><p class="product-card__price">¥1,000（税込）</p></div>
-        </a>
-        <a class="product-card" href="item-c.html">
-          <div class="product-card__image"><img src="images/item-c-main.png" alt="ウーマン商品3" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">GALLARDAGALANTE セットアップ</h3><p class="product-card__price">¥3,000（税込）</p></div>
-        </a>
- <a class="product-card" href="item-d.html">
-          <div class="product-card__image"><img src="images/item-d-main.png" alt="ウーマン商品4" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">emmi×PUMA　スカート</h3><p class="product-card__price">¥2,000（税込）</p></div>
-        </a>
- <a class="product-card" href="item-e.html">
-          <div class="product-card__image"><img src="images/item-e-main.png" alt="ウーマン商品5" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">LANVIN ワンピース</h3><p class="product-card__price">¥5,000（税込）</p></div>
-        </a>
- <a class="product-card" href="item-f.html">
-          <div class="product-card__image"><img src="images/item-f-main.png" alt="ウーマン商品6" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">theory コート</h3><p class="product-card__price">¥5,000（税込）</p></div>
-        </a>
-<a class="product-card" href="item-g.html">
-          <div class="product-card__image"><img src="images/item-g-main.png" alt="ウーマン商品7" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">nano universe レザースカート</h3><p class="product-card__price">¥1,000（税込）</p></div>
-        </a>
-
-
+        <a class="product-card" href="item-a.html"><div class="product-card__image"><img src="images/item-a-main.jpg" alt="ウーマン商品1" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">earのショルダーバッグ</h3><p class="product-card__price">¥800（税込）</p></div></a>
+        <a class="product-card" href="item-b.html"><div class="product-card__image"><img src="images/item-b-main.png" alt="ウーマン商品2" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">Desigual ワンピース</h3><p class="product-card__price">¥1,000（税込）</p></div></a>
+        <a class="product-card" href="item-c.html"><div class="product-card__image"><img src="images/item-c-main.png" alt="ウーマン商品3" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">GALLARDAGALANTE セットアップ</h3><p class="product-card__price">¥3,000（税込）</p></div></a>
+        <a class="product-card" href="item-d.html"><div class="product-card__image"><img src="images/item-d-main.png" alt="ウーマン商品4" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">emmi×PUMA スカート</h3><p class="product-card__price">¥2,000（税込）</p></div></a>
+        <a class="product-card" href="item-e.html"><div class="product-card__image"><img src="images/item-e-main.png" alt="ウーマン商品5" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">LANVIN ワンピース</h3><p class="product-card__price">¥5,000（税込）</p></div></a>
+        <a class="product-card" href="item-f.html"><div class="product-card__image"><img src="images/item-f-main.png" alt="ウーマン商品6" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">theory コート</h3><p class="product-card__price">¥5,000（税込）</p></div></a>
+        <a class="product-card" href="item-g.html"><div class="product-card__image"><img src="images/item-g-main.png" alt="ウーマン商品7" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">nano universe レザースカート</h3><p class="product-card__price">¥1,000（税込）</p></div></a>
       </div>
-<!-- このボタンより前に商品を入れる -->
-      <div class="category__actions">
-        <button class="more-button" type="button" aria-expanded="false">もっとみる</button>
-      </div>
+      <div class="category__actions"><button class="more-button" type="button" aria-expanded="false">もっとみる</button></div>
     </section>
 
     <section class="category" id="kids">
-      <h2 class="category__title">KIDS</h2>
+      <div class="category__intro">
+        <h2 class="category__title"><a href="kids.html" aria-label="KIDSの商品一覧を見る">KIDS</a></h2>
+        <p class="category__description">毎日の装いを楽しくする、キッズアイテムを集めました。</p>
+      </div>
       <div class="product-grid">
-        <a class="product-card" href="item-ka.html">
-          <div class="product-card__image"><img src="images/item-ka-main.png" alt="キッズ商品1" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
-        </a>
-        <a class="product-card" href="item-kb.html">
-          <div class="product-card__image"><img src="images/item-kb-main.png" alt="キッズ商品2" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
-        </a>
-        <a class="product-card" href="item-kc.html">
-          <div class="product-card__image"><img src="images/item-kc-main.png" alt="キッズ商品3" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
-        </a>
+        <a class="product-card" href="item-ka.html"><div class="product-card__image"><img src="images/item-ka-main.png" alt="キッズ商品1" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-kb.html"><div class="product-card__image"><img src="images/item-kb-main.png" alt="キッズ商品2" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-kc.html"><div class="product-card__image"><img src="images/item-kc-main.png" alt="キッズ商品3" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-kd.html"><div class="product-card__image"><img src="images/item-kd-main.png" alt="キッズ商品4" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-ke.html"><div class="product-card__image"><img src="images/item-ke-main.png" alt="キッズ商品5" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-kf.html"><div class="product-card__image"><img src="images/item-kf-main.png" alt="キッズ商品6" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-kg.html"><div class="product-card__image"><img src="images/item-kg-main.png" alt="キッズ商品7" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
       </div>
-      <div class="category__actions">
-        <button class="more-button" type="button" aria-expanded="false">もっとみる</button>
-      </div>
+      <div class="category__actions"><button class="more-button" type="button" aria-expanded="false">もっとみる</button></div>
     </section>
 
     <section class="category" id="men">
-      <h2 class="category__title">MEN</h2>
+      <div class="category__intro">
+        <h2 class="category__title"><a href="men.html" aria-label="MENの商品一覧を見る">MEN</a></h2>
+        <p class="category__description">幅広いシーンで使いやすい、男性向けのアイテムを集めました。</p>
+      </div>
       <div class="product-grid">
-        <a class="product-card" href="item-ma.html">
-          <div class="product-card__image"><img src="images/item-ma-main.png" alt="メンズ商品1" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
-        </a>
-        <a class="product-card" href="item-mb.html">
-          <div class="product-card__image"><img src="images/item-mb-main.png" alt="メンズ商品2" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
-        </a>
-        <a class="product-card" href="item-mc.html">
-          <div class="product-card__image"><img src="images/item-mc-main.jpg" alt="メンズ商品3" loading="lazy"></div>
-          <div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div>
-        </a>
+        <a class="product-card" href="item-ma.html"><div class="product-card__image"><img src="images/item-ma-main.png" alt="メンズ商品1" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-mb.html"><div class="product-card__image"><img src="images/item-mb-main.png" alt="メンズ商品2" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-mc.html"><div class="product-card__image"><img src="images/item-mc-main.jpg" alt="メンズ商品3" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-md.html"><div class="product-card__image"><img src="images/item-md-main.png" alt="メンズ商品4" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-me.html"><div class="product-card__image"><img src="images/item-me-main.png" alt="メンズ商品5" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-mf.html"><div class="product-card__image"><img src="images/item-mf-main.png" alt="メンズ商品6" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
+        <a class="product-card" href="item-mg.html"><div class="product-card__image"><img src="images/item-mg-main.png" alt="メンズ商品7" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></a>
       </div>
-      <div class="category__actions">
-        <button class="more-button" type="button" aria-expanded="false">もっとみる</button>
-      </div>
+      <div class="category__actions"><button class="more-button" type="button" aria-expanded="false">もっとみる</button></div>
     </section>
   </main>
 
@@ -288,45 +273,30 @@
     (() => {
       const mobileQuery = window.matchMedia('(max-width: 720px)');
       const categories = document.querySelectorAll('.category');
-
-      const getInitialLimit = () => mobileQuery.matches ? 6 : 9;
+      const getInitialLimit = () => mobileQuery.matches ? 4 : 6;
 
       const updateCategory = (category) => {
         const cards = [...category.querySelectorAll('.product-card')];
         const button = category.querySelector('.more-button');
         const expanded = button.getAttribute('aria-expanded') === 'true';
         const limit = getInitialLimit();
-
-        cards.forEach((card, index) => {
-          card.hidden = !expanded && index >= limit;
-        });
-
+        cards.forEach((card, index) => { card.hidden = !expanded && index >= limit; });
         button.hidden = cards.length <= limit;
         button.textContent = expanded ? '閉じる' : 'もっとみる';
       };
 
       categories.forEach((category) => {
         const button = category.querySelector('.more-button');
-
         button.addEventListener('click', () => {
           const expanded = button.getAttribute('aria-expanded') === 'true';
           button.setAttribute('aria-expanded', String(!expanded));
           updateCategory(category);
-
-          if (expanded) {
-            category.querySelector('.category__title').scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
+          if (expanded) category.querySelector('.category__title').scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
-
         updateCategory(category);
       });
 
-      mobileQuery.addEventListener('change', () => {
-        categories.forEach(updateCategory);
-      });
+      mobileQuery.addEventListener('change', () => categories.forEach(updateCategory));
     })();
   </script>
 </body>
