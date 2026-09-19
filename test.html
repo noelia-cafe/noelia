@@ -40,7 +40,7 @@
     }
 
     .logo {
-      font-family: Georgia, "Times New Romen's", serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 24px;
       letter-spacing: .16em;
     }
@@ -103,6 +103,22 @@
       transition: opacity .25s ease;
     }
     .banner-card:hover .banner-card__image img { opacity: .92; }
+    .banner-card__image--label {
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(138, 94, 72, .16);
+      background: linear-gradient(135deg, #fffdfa, #f0e7da);
+      color: var(--ink);
+      font: 400 clamp(18px, 2.3vw, 28px)/1 Georgia, "Times New Roman", serif;
+      letter-spacing: .14em;
+      text-indent: .14em;
+      transition: color .25s ease, background-color .25s ease;
+    }
+    .banner-card:hover .banner-card__image--label,
+    .banner-card:focus-visible .banner-card__image--label {
+      color: var(--accent);
+      background: #fff;
+    }
     .category { padding: 38px 0 92px; }
     .category__intro { margin: 0 auto 38px; text-align: center; }
     .category__title {
@@ -188,9 +204,9 @@
   <header class="page-header">
     <a class="logo" href="index.html" aria-label="トップページ">noelia-cafe</a>
     <nav class="nav" aria-label="カテゴリーナビゲーション">
-      <a href="womens.html">women's</a>
-      <a href="kids.html">kids'</a>
-      <a href="mens.html">men's</a>
+      <a href="women.html">WOMEN</a>
+      <a href="kids.html">KIDS</a>
+      <a href="man.html">MAN</a>
     </nav>
   </header>
 
@@ -221,6 +237,15 @@
       <a class="banner-card" href="500yen.html">
         <div class="banner-card__image"><img src="images/bnr-4.png" alt="500円以上の商品ページ" loading="lazy"></div>
       </a>
+      <a class="banner-card" href="キッズ.html">
+        <div class="banner-card__image banner-card__image--label">KIDS'</div>
+      </a>
+      <a class="banner-card" href="womens.html">
+        <div class="banner-card__image banner-card__image--label">WOMEN'S</div>
+      </a>
+      <a class="banner-card" href="mens.html">
+        <div class="banner-card__image banner-card__image--label">MEN'S</div>
+      </a>
     </section>
 
     <header class="page-title">
@@ -228,9 +253,9 @@
       <p>PRODUCTS</p>
     </header>
 
-    <section class="category" id="women's">
+    <section class="category" id="woman">
       <div class="category__intro">
-        <h2 class="category__title">women's</h2>
+        <h2 class="category__title">WOMAN</h2>
         <!--<p class="category__description">毎日に取り入れやすい、女性向けのアイテムを集めました。</p>-->
       </div>
       <div class="product-grid">
@@ -250,12 +275,12 @@
         <a class="product-card" href="item-r.html"><div class="product-card__image"><img src="images/item-r-main.png" alt="ウーマン商品14" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">Paul Stuart New York ジャケット</h3><p class="product-card__price">￥1,500（税込）</p></div></a>
         <a class="product-card" href="item-aa.html"><div class="product-card__image"><img src="images/item-aa-main.png" alt="ウーマン商品15" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">CAVEZA ROSSO オーバーオール</h3><p class="product-card__price">￥500（税込）</p></div></a>
       </div>
-      <div class="category__actions"><a class="more-button" href="womens.html">もっとみる</a></div>
+      <div class="category__actions"><a class="more-button" href="women.html">もっとみる</a></div>
     </section>
 
-    <section class="category" id="kids'">
+    <section class="category" id="kids">
       <div class="category__intro">
-        <h2 class="category__title">kids'</h2>
+        <h2 class="category__title">KIDS</h2>
         <!--<p class="category__description">毎日の装いを楽しくする、キッズアイテムを集めました。</p>-->
       </div>
       <div class="product-grid">
@@ -285,9 +310,9 @@
       <div class="category__actions"><a class="more-button" href="kids.html">もっとみる</a></div>
     </section>
 
-    <section class="category" id="men's">
+    <section class="category" id="men">
       <div class="category__intro">
-        <h2 class="category__title">men's</h2>
+        <h2 class="category__title">MEN</h2>
         <!--<p class="category__description">幅広いシーンで使いやすい、男性向けのアイテムを集めました。</p>-->
       </div>
       <div class="product-grid">
@@ -299,7 +324,7 @@
         <div class="product-card"><div class="product-card__image"><img src="images/item-mf-main.png" alt="メンズ商品6" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></div>
         <div class="product-card"><div class="product-card__image"><img src="images/item-mg-main.png" alt="メンズ商品7" loading="lazy"></div><div class="product-card__body"><h3 class="product-card__name">商品名が入ります</h3><p class="product-card__price">¥0,000（税込）</p></div></div>-->
       </div>
-      <div class="category__actions"><a class="more-button" href="mens.html">もっとみる</a></div>
+      <div class="category__actions"><a class="more-button" href="man.html">もっとみる</a></div>
     </section>
   </main>
 
