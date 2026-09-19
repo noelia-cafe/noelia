@@ -142,6 +142,14 @@
       line-height: 1.7;
     }
 
+    .product-card__price {
+  margin: 5px 2px 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
     .back-area {
       display: flex;
       justify-content: center;
@@ -247,7 +255,7 @@
       { image: "item-e-main.png", name: "LANVIN ワンピース", price: "¥3,000（税込）", href: "", soldOut: false },
       { image: "item-k-main.png", name: "バックスリットデザインリブニット", price: "¥500（税込）", href: "", soldOut: false },
       { image: "item-f-main.png", name: "theory コート", price: "¥2,000（税込）", href: "", soldOut: false },
-      { image: "item-ad-main.png", name: "URBAN RESEARCH"ムートンコート, price: "¥2,500（税込）", href: "", soldOut: false },
+      { image: "item-ad-main.png", name: "URBAN RESEARCH ムートンコート", price: "¥2,500（税込）", href: "", soldOut: false },
       { image: "item-s-main.png", name: "中綿ロングコート", price: "¥1,500（税込）", href: "", soldOut: false },
       { image: "item-p-main.png", name: "花柄ワンピース", price: "¥500（税込）", href: "", soldOut: false },
       { image: "item-q-main.png", name: "Do CLASSE ガウチョパンツ", price: "¥300（税込）", href: "", soldOut: false },
@@ -293,12 +301,16 @@
       image.loading = "lazy";
 
       const name = document.createElement("h2");
-      name.className = "product-card__name";
-      name.textContent = product.name;
+name.className = "product-card__name";
+name.textContent = product.name;
 
-      imageBox.appendChild(image);
-      card.append(imageBox, name);
-      grid.appendChild(card);
+const price = document.createElement("p");
+price.className = "product-card__price";
+price.textContent = product.price;
+
+imageBox.appendChild(image);
+card.append(imageBox, name, price);
+grid.appendChild(card);
     });
   </script>
 </body>
