@@ -81,6 +81,7 @@
     .page-title p { margin: 0; color: var(--muted); font-size: 12px; letter-spacing: .22em; }
 
     .banner-menu {
+      --banner-half-gap: clamp(9px, 1.25vw, 15px);
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: clamp(24px, 3vw, 40px) clamp(18px, 2.5vw, 30px);
@@ -118,6 +119,12 @@
     .banner-card:focus-visible .banner-card__image--label {
       color: var(--accent);
       background: #fff;
+    }
+
+    @media (min-width: 721px) {
+      .banner-menu > .banner-card:nth-child(n + 5) {
+        transform: translateX(calc(50% + var(--banner-half-gap)));
+      }
     }
     .category { padding: 38px 0 92px; }
     .category__intro { margin: 0 auto 38px; text-align: center; }
@@ -237,7 +244,7 @@
       <a class="banner-card" href="500yen.html">
         <div class="banner-card__image"><img src="images/bnr-4.png" alt="500円以上の商品ページ" loading="lazy"></div>
       </a>
-      <a class="banner-card" href="キッズ.html">
+      <a class="banner-card" href="kids.html">
         <div class="banner-card__image banner-card__image--label">KIDS'</div>
       </a>
       <a class="banner-card" href="womens.html">
