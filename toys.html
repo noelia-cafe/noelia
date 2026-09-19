@@ -123,6 +123,14 @@
       line-height: 1.7;
     }
 
+    .product-card__price {
+      margin: 5px 2px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
     .back-area {
       display: flex;
       justify-content: center;
@@ -185,6 +193,7 @@
       }
       .page-title h1 { font-size: 29px; }
       .product-card__name { margin-top: 11px; font-size: 13px; }
+      .product-card__price { font-size: 12px; }
     }
   </style>
 </head>
@@ -200,10 +209,10 @@
 
   <main>
     <header class="page-title">
-      <h1>100円</h1>
+      <h1>おもちゃ</h1>
     </header>
 
-    <section class="product-grid" id="product-grid" aria-label="100円の商品一覧"></section>
+    <section class="product-grid" id="product-grid" aria-label="おもちゃ一覧"></section>
 
     <div class="back-area">
       <a class="back-button" href="index.html">TOPページへ戻る</a>
@@ -217,21 +226,21 @@
       商品の編集場所はここだけです。
       image：imagesフォルダ内のPNGファイル名
       name ：画像下に表示する商品名
+      price：商品名の下に表示する価格
       href ：商品ページがある場合だけファイル名を入力（例：item-a.html）
              空欄 "" の間はクリック遷移しません。
     */
     const products = [
-      { image: "item-t1-main.png", name: "レジセット", href: "item-ka.htm" },
-      { image: "item-t2-main.png", name: "メイクセット", href: "" },
-      { image: "item-t3-main.png", name: "お医者さんごっこ", href: "" },
-      { image: "item-t4-main.png", name: "メルちゃん洋服セット", href: "" },
-      { image: "item-t10-main.png", name: "メルちゃん本体花柄ワンピース付き", href: "" },
-      { image: "item-t9-main.png", name: "メルちゃん幼稚園副セット", href: "" },
-      { image: "item-t6-main.png", name: "ダイヤの指輪", href: "" },
-      { image: "item-t7-main.png", name: "トミカ 焼肉キング", href: "" },
-      { image: "item-t8-main.png", name: "マーカーセット", href: "" },
-       { image: "item-t5-main.png", name: "警察セット", href: "" },
-      
+      { image: "item-t1-main.png", name: "レジセット", price: "¥100（税込）", href: "item-ka.htm" },
+      { image: "item-t2-main.png", name: "メイクセット", price: "¥100（税込）", href: "" },
+      { image: "item-t3-main.png", name: "お医者さんごっこ", price: "¥100（税込）", href: "" },
+      { image: "item-t4-main.png", name: "メルちゃん洋服セット", price: "¥500（税込）", href: "" },
+      { image: "item-t10-main.png", name: "メルちゃん本体花柄ワンピース付き", price: "¥1,000（税込）", href: "" },
+      { image: "item-t9-main.png", name: "メルちゃん幼稚園服セット", price: "¥100（税込）", href: "" },
+      { image: "item-t6-main.png", name: "ダイヤの指輪", price: "¥10（税込）", href: "" },
+      { image: "item-t7-main.png", name: "トミカ 焼肉キング", price: "¥20（税込）", href: "" },
+      { image: "item-t8-main.png", name: "マーカーセット", price: "¥100（税込）", href: "" },
+      { image: "item-t5-main.png", name: "警察セット", price: "¥20（税込）", href: "" }
     ];
 
     const grid = document.querySelector("#product-grid");
@@ -257,8 +266,12 @@
       name.className = "product-card__name";
       name.textContent = product.name;
 
+      const price = document.createElement("p");
+      price.className = "product-card__price";
+      price.textContent = product.price;
+
       imageBox.appendChild(image);
-      card.append(imageBox, name);
+      card.append(imageBox, name, price);
       grid.appendChild(card);
     });
   </script>
