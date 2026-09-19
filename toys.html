@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="noelia-cafe おもちゃ一覧">
+  <title>おもちゃ | noelia-cafe</title>
+  <style>
+    :root {
+      --ink: #181818;
+      --muted: #777;
+      --line: #dedbd5;
+      --paper: #fbfaf7;
+      --accent: #8a5e48;
+      --content-width: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .page-header {
+      padding: 24px clamp(20px, 5vw, 72px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      letter-spacing: .16em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      letter-spacing: .12em;
+    }
+
+    .nav a:hover { color: var(--accent); }
+
+    main {
+      width: min(var(--content-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .page-title {
+      padding: 72px 0 48px;
+      text-align: center;
+    }
+
+    .page-title h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 42px);
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-indent: .18em;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(34px, 4vw, 56px) clamp(18px, 3vw, 38px);
+      padding-bottom: 80px;
+    }
+
+    .product-card__image {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: var(--paper);
+    }
+
+    .product-card__image img {
+      height: 100%;
+      object-fit: contain;
+      transition: transform .45s ease;
+    }
+
+    a.product-card:hover .product-card__image img,
+    a.product-card:focus-visible .product-card__image img {
+      transform: scale(1.035);
+    }
+
+    a.product-card .product-card__image::after {
+      content: "VIEW ITEM";
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      padding: 8px 11px;
+      background: rgba(255, 255, 255, .9);
+      font-size: 10px;
+      letter-spacing: .14em;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    a.product-card:hover .product-card__image::after,
+    a.product-card:focus-visible .product-card__image::after {
+      opacity: 1;
+      transform: none;
+    }
+
+    .product-card__name {
+      margin: 15px 2px 0;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .back-area {
+      display: flex;
+      justify-content: center;
+      padding: 0 0 92px;
+    }
+
+    .back-button {
+      min-width: 190px;
+      padding: 14px 28px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: .1em;
+      transition: color .2s ease, background-color .2s ease;
+    }
+
+    .back-button:hover,
+    .back-button:focus-visible {
+      color: #fff;
+      background: var(--ink);
+    }
+
+    .page-footer {
+      padding: 42px 20px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .12em;
+    }
+
+    @media (max-width: 720px) {
+      .page-header { padding-block: 18px; }
+      .nav { gap: 12px; }
+      .page-title { padding: 52px 0 38px; }
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 14px;
+        padding-bottom: 62px;
+      }
+      .back-area { padding-bottom: 68px; }
+    }
+
+    @media (max-width: 440px) {
+      .page-header {
+        padding: 16px 18px;
+        gap: 10px;
+      }
+      .logo {
+        font-size: 18px;
+        letter-spacing: .1em;
+        white-space: nowrap;
+      }
+      .nav {
+        gap: 7px;
+        flex-shrink: 0;
+        font-size: 8px;
+        letter-spacing: .02em;
+      }
+      .page-title h1 { font-size: 29px; }
+      .product-card__name { margin-top: 11px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <a class="logo" href="index.html" aria-label="トップページ">noelia-cafe</a>
+    <nav class="nav" aria-label="カテゴリーナビゲーション">
+      <a href="woman.html">WOMAN</a>
+      <a href="kids.html">KIDS</a>
+      <a href="men.html">MEN</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="page-title">
+      <h1>100円</h1>
+    </header>
+
+    <section class="product-grid" id="product-grid" aria-label="100円の商品一覧"></section>
+
+    <div class="back-area">
+      <a class="back-button" href="index.html">TOPページへ戻る</a>
+    </div>
+  </main>
+
+  <footer class="page-footer">© 2026 YOUR BRAND</footer>
+
+  <script>
+    /*
+      商品の編集場所はここだけです。
+      image：imagesフォルダ内のPNGファイル名
+      name ：画像下に表示する商品名
+      href ：商品ページがある場合だけファイル名を入力（例：item-a.html）
+             空欄 "" の間はクリック遷移しません。
+    */
+    const products = [
+      { image: "item-t1-main.png", name: "レジセット", href: "item-ka.htm" },
+      { image: "item-t2-main.png", name: "メイクセット", href: "" },
+      { image: "item-t3-main.png", name: "お医者さんごっこ", href: "" },
+      { image: "item-t4-main.png", name: "メルちゃん洋服セット", href: "" },
+      { image: "item-t10-main.png", name: "メルちゃん本体花柄ワンピース付き", href: "" },
+      { image: "item-t9-main.png", name: "メルちゃん幼稚園副セット", href: "" },
+      { image: "item-t6-main.png", name: "ダイヤの指輪", href: "" },
+      { image: "item-t7-main.png", name: "トミカ 焼肉キング", href: "" },
+      { image: "item-t8-main.png", name: "マーカーセット", href: "" },
+       { image: "item-t5-main.png", name: "警察セット", href: "" },
+      
+    ];
+
+    const grid = document.querySelector("#product-grid");
+
+    products.forEach((product) => {
+      const card = document.createElement(product.href ? "a" : "article");
+      card.className = "product-card";
+
+      if (product.href) {
+        card.href = product.href;
+        card.setAttribute("aria-label", `${product.name}の商品ページを見る`);
+      }
+
+      const imageBox = document.createElement("div");
+      imageBox.className = "product-card__image";
+
+      const image = document.createElement("img");
+      image.src = `images/${product.image}`;
+      image.alt = product.name;
+      image.loading = "lazy";
+
+      const name = document.createElement("h2");
+      name.className = "product-card__name";
+      name.textContent = product.name;
+
+      imageBox.appendChild(image);
+      card.append(imageBox, name);
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
