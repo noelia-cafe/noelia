@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="noelia-cafe 100円の商品一覧">
-  <title>100円の商品 | noelia-cafe</title>
+  <meta name="description" content="noelia-cafe 100円のおもちゃ一覧">
+  <title>100円 | noelia-cafe</title>
   <style>
     :root {
       --ink: #181818;
@@ -115,6 +115,25 @@
       transform: none;
     }
 
+    .product-card.is-sold-out .product-card__image::before {
+      content: "SOLD OUT";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      width: min(72%, 220px);
+      padding: 12px 10px;
+      border: 1px solid rgba(196, 59, 50, .5);
+      background: rgba(255, 255, 255, .88);
+      color: #c43b32;
+      text-align: center;
+      font-size: clamp(12px, 1.5vw, 16px);
+      font-weight: 600;
+      letter-spacing: .18em;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
     .product-card__name {
       margin: 15px 2px 0;
       text-align: center;
@@ -217,32 +236,33 @@
       商品の編集場所はここだけです。
       image：imagesフォルダ内のPNGファイル名
       name ：画像下に表示する商品名
+      soldOut：売り切れの場合は true、販売中は false
       href ：商品ページがある場合だけファイル名を入力（例：item-a.html）
              空欄 "" の間はクリック遷移しません。
     */
     const products = [
-      { image: "item-ka-main.png", name: "H&M ワンピース", href: "item-ka.htm" },
-      { image: "item-kf-main.png", name: "チェックワンピース", href: "" },
-      { image: "item-kg-main.png", name: "くまちゃんTシャツ", href: "" },
-      { image: "item-kh-main.png", name: "ZARA ワンピース", href: "" },
-      { image: "item-ki-main.png", name: "花柄ワンピース", href: "" },
-      { image: "item-kj-main.png", name: "ユニクロ　Tシャツ", href: "" },
-      { image: "item-kk-main.png", name: "TOCCA Tシャツ", href: "" },
-      { image: "item-kn-main.png", name: "ブルーストライプシャツ", href: "" },
-      { image: "item-ko-main.png", name: "ポロシャツワンピース", href: "" },
-       { image: "item-kp-main.png", name: "ネコちゃん トレーナー", href: "" },
-       { image: "item-kr-main.png", name: "BeBe Tシャツ", href: "" },
-       { image: "item-kt-main.png", name: "ボーダーチュニック", href: "" },
-       { image: "item-ku-main.png", name: "お出かけワンピース", href: "" },
-       { image: "item-kv-main.png", name: "ボーダー切り替えワンピース", href: "" },
-       { image: "item-ky-main.png", name: "お出かけワンピース", href: "" },
+      { image: "item-ka-main.png", name: "H&M ワンピース", href: "item-ka.html", soldOut: true },
+      { image: "item-kf-main.png", name: "チェックワンピース", href: "", soldOut: false },
+      { image: "item-kg-main.png", name: "くまちゃんTシャツ", href: "", soldOut: false },
+      { image: "item-kh-main.png", name: "ZARA ワンピース", href: "", soldOut: false },
+      { image: "item-ki-main.png", name: "花柄ワンピース", href: "", soldOut: false },
+      { image: "item-kj-main.png", name: "ユニクロ　Tシャツ", href: "", soldOut: false },
+      { image: "item-kk-main.png", name: "TOCCA Tシャツ", href: "", soldOut: false },
+      { image: "item-kn-main.png", name: "ブルーストライプシャツ", href: "", soldOut: false },
+      { image: "item-ko-main.png", name: "ポロシャツワンピース", href: "", soldOut: false },
+      { image: "item-kp-main.png", name: "ネコちゃん トレーナー", href: "", soldOut: false },
+      { image: "item-kr-main.png", name: "BeBe Tシャツ", href: "", soldOut: false },
+      { image: "item-kt-main.png", name: "ボーダーチュニック", href: "", soldOut: false },
+      { image: "item-ku-main.png", name: "お出かけワンピース", href: "", soldOut: false },
+      { image: "item-kv-main.png", name: "ボーダー切り替えワンピース", href: "", soldOut: false },
+      { image: "item-ky-main.png", name: "お出かけワンピース", href: "", soldOut: false }
     ];
 
     const grid = document.querySelector("#product-grid");
 
     products.forEach((product) => {
       const card = document.createElement(product.href ? "a" : "article");
-      card.className = "product-card";
+      card.className = product.soldOut ? "product-card is-sold-out" : "product-card";
 
       if (product.href) {
         card.href = product.href;
